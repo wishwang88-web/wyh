@@ -8,6 +8,18 @@
     --body-font: 'Roboto', sans-serif;
 }
 
+/* --- 新增：定義動畫影格 --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -18,6 +30,8 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+    /* 新增：防止元素在動畫開始前出現水平滾動條 */
+    overflow-x: hidden;
 }
 
 .container {
@@ -40,6 +54,8 @@ h1, h2, h3 {
 h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
+    /* 新增：為區塊標題加上載入動畫 */
+    animation: fadeInUp 0.8s ease-out;
 }
 
 a {
@@ -67,7 +83,13 @@ a {
     font-family: var(--heading-font);
     font-size: 1.5em;
     font-weight: 700;
+    /* 新增：為 Logo 加上 hover 效果 */
+    transition: transform 0.3s ease;
 }
+.logo:hover {
+    transform: scale(1.05);
+}
+
 
 .nav-links {
     list-style: none;
@@ -78,11 +100,31 @@ a {
 }
 
 .nav-links a {
+    position: relative; /* 新增：為底線動畫定位 */
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
     color: #fff;
+}
+
+/* 新增：導覽列連結的 hover 底線動畫 */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 /* --- 英雄區塊 --- */
@@ -98,11 +140,17 @@ a {
 .hero h1 {
     font-size: 4em;
     margin-bottom: 0.2em;
+    /* 新增：主標題的進入動畫 */
+    animation: fadeInUp 0.8s ease-out;
 }
 
 .hero .subtitle {
     font-size: 1.5em;
     color: #a0aec0; /* Lighter text for subtitle */
+    /* 新增：副標題的進入動畫，並延遲播放 */
+    animation: fadeInUp 0.8s ease-out 0.2s;
+    /* 新增：讓動畫填充模式為 backwards，使元素在動畫開始前就處於初始狀態 */
+    animation-fill-mode: backwards;
 }
 
 /* --- 專案區塊 --- */
@@ -118,12 +166,16 @@ a {
     padding: 25px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* 更新：讓邊框也加入過渡動畫 */
+    border: 2px solid transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    transform: translateY(-10px); /* 更新：讓卡片上移效果更明顯 */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* 更新：陰影更深邃 */
+    /* 新增：滑鼠懸停時顯示強調色的邊框 */
+    border-color: var(--accent-color);
 }
 
 .project-card h3 {
@@ -139,11 +191,14 @@ a {
     border-radius: 5px;
     font-weight: 700;
     text-transform: uppercase;
-    transition: background-color 0.3s ease;
+    /* 更新：加入 transform 讓縮放更流暢 */
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .cta-button:hover {
     background-color: #38b2ac; /* A slightly darker shade */
+    /* 新增：滑鼠懸停時按鈕輕微放大 */
+    transform: scale(1.05);
 }
 
 /* --- 頁尾 --- */
@@ -157,11 +212,14 @@ a {
 .social-links a {
     margin: 0 15px;
     font-size: 1.1em;
-    transition: color 0.3s ease;
+    /* 更新：為社群連結加上過渡效果 */
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-links a:hover {
     color: #fff;
+    /* 新增：滑鼠懸停時圖示輕微放大 */
+    transform: scale(1.2);
 }
 
 .footer p {
