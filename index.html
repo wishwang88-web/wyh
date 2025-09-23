@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人介紹</title>
+    <title>汪意恆 | 前端開發者</title>
     
     <!-- 引入 Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- 引入 Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <!-- 連結外部 CSS 檔案 -->
     <link rel="stylesheet" href="style.css">
@@ -18,57 +21,63 @@
     <!-- 導覽列 -->
     <nav class="navbar">
         <div class="container">
-            <a href="#hero" class="logo">[請填寫你的名字]</a>
+            <a href="#hero" class="logo">汪意恆</a>
             <ul class="nav-links">
                 <li><a href="#about">關於我</a></li>
                 <li><a href="#projects">專案</a></li>
                 <li><a href="#contact">聯絡</a></li>
             </ul>
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="切換深淺色模式">
+                <i class="fa-solid fa-sun"></i>
+                <i class="fa-solid fa-moon"></i>
+            </button>
         </div>
     </nav>
 
     <!-- 英雄區塊 -->
     <header id="hero" class="hero">
-        <div class="container">
-            <h1>[請填寫你的名字]</h1>
-            <p class="subtitle" data-text="[請填寫你的學校與科系]"></p> <!-- 新增 data-text 屬性 -->
+        <div class="hero-content">
+            <h1 class="reveal">汪意恆</h1>
+            <p class="subtitle reveal" data-reveal-delay="200">北科大 電資一</p>
         </div>
     </header>
 
     <main>
         <!-- 關於我 -->
-        <section id="about" class="section reveal"> <!-- 新增 reveal class -->
-            <div class="container">
+        <section id="about" class="section">
+            <div class="container reveal">
                 <h2>關於我</h2>
                 <p>
-                    這是一段自我介紹。我是一位充滿熱情的前端開發者，專注於打造優雅且高效的使用者介面。我熟悉 HTML、CSS 和 JavaScript，並且樂於學習新技術，以應對不斷變化的網頁開發挑戰。
+                    我是一位充滿熱情的前端開發者，專注於打造優雅且高效的使用者介面。我熟悉 HTML、CSS 和 JavaScript，並且樂於學習新技術，以應對不斷變化的網頁開發挑戰。我相信好的設計不僅是美觀，更是流暢與直觀的使用體驗。
                 </p>
             </div>
         </section>
 
         <!-- 專案 -->
-        <section id="projects" class="section reveal"> <!-- 新增 reveal class -->
-            <div class="container">
+        <section id="projects" class="section">
+            <div class="container reveal">
                 <h2>專案</h2>
                 <div class="project-grid">
-                    <div class="project-card reveal-item"> <!-- 新增 reveal-item class -->
+                    <div class="project-card reveal" data-reveal-delay="0">
                         <h3>專案一：作品集網站</h3>
-                        <p>使用 HTML 和 CSS 建立的響應式個人作品集網站，展示我的技能與經歷。</p>
+                        <p>使用 HTML、CSS 和 JavaScript 建立的響應式個人作品集網站，展示我的技能與經歷，並具備深淺色模式切換功能。</p>
                     </div>
-                    <div class="project-card reveal-item"> <!-- 新增 reveal-item class -->
+                    <div class="project-card reveal" data-reveal-delay="200">
                         <h3>專案二：待辦事項應用</h3>
-                        <p>一個簡潔的待辦事項 Web App，讓使用者可以新增、刪除和標記完成任務。</p>
+                        <p>一個簡潔的待辦事項 Web App，讓使用者可以新增、刪除和標記完成任務，並將資料儲存在瀏覽器的 Local Storage。</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 聯絡方式 -->
-        <section id="contact" class="section reveal"> <!-- 新增 reveal class -->
-            <div class="container">
+        <section id="contact" class="section">
+            <div class="container reveal">
                 <h2>聯絡我</h2>
                 <p>如果您對我的作品感興趣，或是有任何合作機會，歡迎隨時與我聯繫！</p>
-                <a href="mailto:[請填寫你的Email]" class="cta-button">寄送 Email</a>
+                <a href="mailto:[請填寫你的Email]" class="cta-button">
+                    <i class="fa-solid fa-envelope"></i> 寄送 Email
+                </a>
             </div>
         </section>
     </main>
@@ -77,15 +86,12 @@
     <footer class="footer">
         <div class="container">
             <div class="social-links">
-                <a href="#" target="_blank">GitHub</a>
-                <a href="#" target="_blank">LinkedIn</a>
+                <a href="#" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
             </div>
-            <p>&copy; 2025 [請填寫你的名字]. All Rights Reserved.</p>
+            <p>&copy; 2025 汪意恆. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <!-- 新增：回到頂部按鈕 -->
-    <button id="backToTopBtn" title="回到頂部">↑</button>
 
     <!-- 引入 JavaScript 檔案 -->
     <script src="script.js"></script>
