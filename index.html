@@ -18,7 +18,7 @@
     <!-- 導覽列 -->
     <nav class="navbar">
         <div class="container">
-            <a href="#hero" class="logo">汪意恆</a>
+            <a href="#hero" class="logo">[請填寫你的名字]</a>
             <ul class="nav-links">
                 <li><a href="#about">關於我</a></li>
                 <li><a href="#projects">專案</a></li>
@@ -30,14 +30,14 @@
     <!-- 英雄區塊 -->
     <header id="hero" class="hero">
         <div class="container">
-            <h1>汪意恆</h1>
-            <p class="subtitle">北科大 電資一</p>
+            <h1>[請填寫你的名字]</h1>
+            <p class="subtitle" data-text="[請填寫你的學校與科系]"></p> <!-- 新增 data-text 屬性 -->
         </div>
     </header>
 
     <main>
         <!-- 關於我 -->
-        <section id="about" class="section">
+        <section id="about" class="section reveal"> <!-- 新增 reveal class -->
             <div class="container">
                 <h2>關於我</h2>
                 <p>
@@ -47,15 +47,15 @@
         </section>
 
         <!-- 專案 -->
-        <section id="projects" class="section">
+        <section id="projects" class="section reveal"> <!-- 新增 reveal class -->
             <div class="container">
                 <h2>專案</h2>
                 <div class="project-grid">
-                    <div class="project-card">
+                    <div class="project-card reveal-item"> <!-- 新增 reveal-item class -->
                         <h3>專案一：作品集網站</h3>
                         <p>使用 HTML 和 CSS 建立的響應式個人作品集網站，展示我的技能與經歷。</p>
                     </div>
-                    <div class="project-card">
+                    <div class="project-card reveal-item"> <!-- 新增 reveal-item class -->
                         <h3>專案二：待辦事項應用</h3>
                         <p>一個簡潔的待辦事項 Web App，讓使用者可以新增、刪除和標記完成任務。</p>
                     </div>
@@ -64,7 +64,7 @@
         </section>
 
         <!-- 聯絡方式 -->
-        <section id="contact" class="section">
+        <section id="contact" class="section reveal"> <!-- 新增 reveal class -->
             <div class="container">
                 <h2>聯絡我</h2>
                 <p>如果您對我的作品感興趣，或是有任何合作機會，歡迎隨時與我聯繫！</p>
@@ -80,9 +80,14 @@
                 <a href="#" target="_blank">GitHub</a>
                 <a href="#" target="_blank">LinkedIn</a>
             </div>
-            <p>&copy; 2025 汪意恆. All Rights Reserved.</p>
+            <p>&copy; 2025 [請填寫你的名字]. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- 新增：回到頂部按鈕 -->
+    <button id="backToTopBtn" title="回到頂部">↑</button>
+
+    <!-- 引入 JavaScript 檔案 -->
+    <script src="script.js"></script>
 </body>
 </html>
