@@ -1,7 +1,7 @@
 /* --- CSS 變數定義 (色彩主題) --- */
 :root {
-    --bg-color: #1a202c;
-    --card-bg-color: #2d3748;
+    --bg-color: #276bf5;
+    --card-bg-color: #1764e9;
     --primary-text-color: #f7fafc;
     --secondary-text-color: #a0aec0;
     --accent-color: #4fd1c5;
@@ -16,7 +16,7 @@
 body.light-mode {
     --bg-color: #f0f2f5;
     --card-bg-color: #ffffff;
-    --primary-text-color: #1a202c;
+    --primary-text-color: #2be02b;
     --secondary-text-color: #4a5568;
     --accent-color: #38b2ac;
     --accent-color-hover: #2c7a7b;
