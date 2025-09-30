@@ -1,0 +1,209 @@
+/* 全域與基本設定 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: #1a202c; /* 深藍灰色背景 */
+    color: #f7fafc; /* 亮色文字 */
+    line-height: 1.6;
+}
+
+/* 導覽列 */
+header {
+    background: #2d3748; /* 稍亮的卡片背景 */
+    padding: 1rem 5%;
+    position: sticky; /* 讓導覽列固定在頂部 */
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: #f7fafc;
+    text-decoration: none;
+    transition: color 0.3s; /* (Bonus) 滑鼠懸停顏色過渡效果 */
+}
+
+nav a:hover {
+    color: #4a90e2; /* 主要亮色 */
+}
+
+/* 主要內容區塊 */
+main section {
+    padding: 4rem 5%;
+    border-bottom: 1px solid #4a5568;
+    /* (Bonus) 漸進載入動畫，可以先註解掉 */
+    animation: fadeIn 1s ease-in-out; 
+}
+
+h1, h2 {
+    margin-bottom: 1rem;
+    color: #4a90e2; /* 主要亮色 */
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2rem; }
+
+#hero {
+    text-align: center;
+    padding: 6rem 5%;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.6rem;
+    background: #4a90e2; /* 主要亮色 */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    /* (Bonus) 滑鼠懸停按鈕過渡效果 */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #357abd; /* 加深的亮色 */
+    transform: scale(1.05);
+}
+
+/* 專案卡片網格 */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 這行本身就具備響應式特性 */
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background: #2d3748; /* 稍亮的卡片背景 */
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* (Bonus) 滑鼠懸停卡片過渡效果 */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* 聯絡方式 */
+.contact-links a {
+    display: block;
+    margin: 0.5rem 0;
+    color: #f7fafc;
+    text-decoration: none;
+    transition: color 0.3s; /* (Bonus) 滑鼠懸停顏色過渡效果 */
+}
+
+.contact-links a:hover {
+    color: #4a90e2;
+}
+
+.contact-links i {
+    margin-right: 10px;
+    color: #4a90e2;
+    width: 20px; /* 讓圖示對齊 */
+    text-align: center;
+}
+
+/* 頁尾 */
+footer {
+    text-align: center;
+    padding: 2rem 5%;
+    background: #2d3748;
+}
+
+.social-icons a {
+    color: #f7fafc;
+    margin: 0 15px;
+    font-size: 1.5rem;
+    transition: color 0.3s; /* (Bonus) 滑鼠懸停顏色過渡效果 */
+}
+
+.social-icons a:hover {
+    color: #4a90e2;
+}
+
+/* (Bonus) 漸進載入動畫 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ========================================= */
+/* ===== 響應式設計 (RWD) for Mobile ===== */
+/* ========================================= */
+
+/* 當螢幕寬度小於或等於 768px 時，套用以下樣式 */
+@media (max-width: 768px) {
+    
+    /* 調整導覽列排版 */
+    nav {
+        flex-direction: column; /* 將 flex 方向改為垂直 */
+        align-items: center; /* 讓項目在交叉軸置中 */
+    }
+
+    nav .logo {
+        margin-bottom: 1rem; /* 在 Logo 和選單之間增加一些間距 */
+    }
+
+    nav ul {
+        flex-direction: column; /* 將選單項目也改為垂直排列 */
+        align-items: center;
+        width: 100%;
+        padding-left: 0; /* 移除 ul 的預設 padding */
+    }
+
+    nav ul li {
+        margin: 0.5rem 0; /* 調整選單項目的間距 */
+    }
+
+    /* 調整字體大小 */
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    /* 調整區塊間距 */
+    main section, #hero {
+        padding: 3rem 5%;
+    }
+
+}
